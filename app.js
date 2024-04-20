@@ -21,13 +21,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan("tiny"));
 
-// // Define routes
+// Define routes
 const userRoutes = require("./routes/userRoutes");
 const categoryRoutes = require("./routes/categoryRoutes");
-const api = process.env.API_URL;
+const roomRoutes = require("./routes/roomRoutes");
 
+// Use Routes
 app.use("/users", userRoutes);
 app.use("/categories", categoryRoutes);
+app.use("/rooms", roomRoutes);
+
 // Handle 404 errors
 app.use((req, res, next) => {
   res.status(404).json({ message: "Route not found" });
