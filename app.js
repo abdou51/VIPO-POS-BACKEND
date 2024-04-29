@@ -25,11 +25,13 @@ app.use(morgan("tiny"));
 const userRoutes = require("./routes/userRoutes");
 const categoryRoutes = require("./routes/categoryRoutes");
 const roomRoutes = require("./routes/roomRoutes");
+const tableRoutes = require("./routes/tableRoutes");
 
 // Use Routes
 app.use("/users", userRoutes);
 app.use("/categories", categoryRoutes);
 app.use("/rooms", roomRoutes);
+app.use("/tables", tableRoutes);
 
 // Handle 404 errors
 app.use((req, res, next) => {
